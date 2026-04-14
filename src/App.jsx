@@ -241,7 +241,7 @@ export default function App() {
     await addDoc(collection(db, "income"), newIncome);
 
     setIncome((prev) => [...prev, newIncome]);
-
+    setIncomeForm({ date: "", source: "", amount: "" });
   } catch (error) {
     console.error("Income error:", error);
     alert(error.message);
@@ -492,20 +492,20 @@ export default function App() {
                 type="date"
                 value={incomeForm.date}
                 onChange={(e) => setIncomeForm({ ...incomeForm, date: e.target.value })}
-                style={fieldStyle}
-              />
+                />
+
               <input
                 placeholder="Source"
                 value={incomeForm.source}
                 onChange={(e) => setIncomeForm({ ...incomeForm, source: e.target.value })}
-                style={fieldStyle}
               />
+
               <input
                 placeholder="Amount"
                 value={incomeForm.amount}
                 onChange={(e) => setIncomeForm({ ...incomeForm, amount: e.target.value })}
-                style={fieldStyle}
               />
+
               <Button onClick={addIncome} style={{ width: mobileStack ? "100%" : "auto", minHeight: "48px" }}>
                 Add
               </Button>
