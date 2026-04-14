@@ -479,39 +479,50 @@ export default function App() {
           </Card>
 
           <Card>
-            <h2 style={{ marginTop: 0 }}>Add Income</h2>
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: mobileStack ? "1fr" : "1fr 1.3fr 1fr auto",
-                gap: "10px",
-                alignItems: "start"
-              }}
-            >
-              <input
-                type="date"
-                value={incomeForm.date}
-                onChange={(e) => setIncomeForm({ ...incomeForm, date: e.target.value })}
-                />
+  <h2 style={{ marginTop: 0 }}>Add Income</h2>
+  <div
+    style={{
+      display: "grid",
+      gridTemplateColumns: mobileStack ? "1fr" : "1fr 1.3fr 1fr auto",
+      gap: "10px",
+      alignItems: "start"
+    }}
+  >
+    <input
+      type="date"
+      value={incomeForm.date}
+      onChange={(e) =>
+        setIncomeForm({ ...incomeForm, date: e.target.value })
+      }
+      style={fieldStyle}
+    />
 
-              <input
-                placeholder="Source"
-                value={incomeForm.source}
-                onChange={(e) => setIncomeForm({ ...incomeForm, source: e.target.value })}
-              />
+    <input
+      placeholder="Source"
+      value={incomeForm.source}
+      onChange={(e) =>
+        setIncomeForm({ ...incomeForm, source: e.target.value })
+      }
+      style={fieldStyle}
+    />
 
-              <input
-                placeholder="Amount"
-                value={incomeForm.amount}
-                onChange={(e) => setIncomeForm({ ...incomeForm, amount: e.target.value })}
-              />
+    <input
+      placeholder="Amount"
+      value={incomeForm.amount}
+      onChange={(e) =>
+        setIncomeForm({ ...incomeForm, amount: e.target.value })
+      }
+      style={fieldStyle}
+    />
 
-              <Button onClick={addIncome} style={{ width: mobileStack ? "100%" : "auto", minHeight: "48px" }}>
-                Add
-              </Button>
-            </div>
-          </Card>
-        </>
+    <Button
+      onClick={addIncome}
+      style={{ width: mobileStack ? "100%" : "auto", minHeight: "48px" }}
+    >
+      Add
+    </Button>
+  </div>
+</Card>        </>
       )}
 
       {view === "dashboard" && (
