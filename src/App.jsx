@@ -206,8 +206,9 @@ export default function App() {
   };
 
   const addExpense = async () => {
-    if (!expenseForm.amount || !user) return;
+  if (!expenseForm.amount || !user) return;
 
+  try {
     const newExpense = {
       ...expenseForm,
       uid: user.uid,
@@ -216,13 +217,20 @@ export default function App() {
     };
 
     await addDoc(collection(db, "expenses"), newExpense);
+
     setExpenses((prev) => [...prev, newExpense]);
     setExpenseForm({ date: "", category: "", amount: "", receipt: "" });
-  };
+
+  } catch (error) {
+    console.error("Expense error:", error);
+    alert(error.message);
+  }
+};
 
   const addIncome = async () => {
-    if (!incomeForm.amount || !user) return;
+  if (!incomeForm.amount || !user) return;
 
+  try {
     const newIncome = {
       ...incomeForm,
       uid: user.uid,
@@ -231,9 +239,14 @@ export default function App() {
     };
 
     await addDoc(collection(db, "income"), newIncome);
+
     setIncome((prev) => [...prev, newIncome]);
-    setIncomeForm({ date: "", source: "", amount: "" });
-  };
+
+  } catch (error) {
+    console.error("Income error:", error);
+    alert(error.message);
+  }
+};
 
   const exportCSV = () => {
     const rows = [
