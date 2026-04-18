@@ -589,7 +589,7 @@ export default function App() {
     fontSize: mobileStack ? "28px" : "34px",
   }}
 >
-  🎳 TEN BACK PRECISION v416
+  🎳 TEN BACK PRECISION v999
 </h1>          <p
             style={{
               color: appStyles.muted,
@@ -598,7 +598,7 @@ export default function App() {
               maxWidth: "700px",
             }}
           >
-            Bowling LLC tracker for expenses, income, receipts, and reports. BUILD V416
+            Bowling LLC tracker for expenses, income, receipts, and reports. BUILD V999 
           </p>
         </div>
 
